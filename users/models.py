@@ -13,10 +13,10 @@ class User(AbstractUser):
         unique=True, verbose_name="Почта", help_text="Укажите почту"
     )
     phone = models.CharField(
-        max_length=35, verbose_name="Телефон", help_text="Укажите телефон", **NULLABLE
+        max_length=35, verbose_name="Телефон", help_text="Укажите телефон", **NULLABLE         # noqa
     )
     tg_nik = models.CharField(
-        max_length=50, verbose_name="TG", help_text="Укажите TG ник", **NULLABLE
+        max_length=50, verbose_name="TG", help_text="Укажите TG ник", **NULLABLE    # noqa
     )
     avatar = models.ImageField(
         upload_to="users/avatars",

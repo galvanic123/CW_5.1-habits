@@ -10,7 +10,7 @@ from users.serializers import UserSerializer
 @method_decorator(
     name="list",
     decorator=swagger_auto_schema(
-        operation_description="Контроллер для получения списка всех пользователей"
+        operation_description="Контроллер для получения списка всех пользователей"        # noqa
     ),
 )
 @method_decorator(

@@ -10,6 +10,6 @@ router = DefaultRouter()
 router.register(r"habit", HabitViewSet, basename="habit")
 
 urlpatterns = [
-    path("habits/public/", PublicHabitListView.as_view(), name="public-habit-list"),
+    path("habits/public/", PublicHabitListView.as_view(), name="public-habit-list"),        # noqa
     path("habits-list/", HabitsListViewSet.as_view(), name="habits-list"),
 ] + router.urls

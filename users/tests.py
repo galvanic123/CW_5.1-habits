@@ -57,7 +57,7 @@ class UserTestCase(APITestCase):
         url = reverse("users:users-detail", args=(self.user.pk,))
         data = {"email": "admin_test@admin.com"}
         response = self.client.patch(url, data)
-        # print(response.json())
+        print(response.json())
         data = response.json()
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(data.get("email"), "admin_test@admin.com")

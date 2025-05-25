@@ -51,7 +51,7 @@ class HabitViewSet(ModelViewSet):
 
     def get_permissions(self):
         """Ограничивает доступ"""
-        if self.action in ["retrieve", "create", "update", "destroy"]:
+        if self.action in ["retrieve", "update", "destroy"]:
             self.permission_classes = [
                 IsOwner | IsAuthenticated,
             ]

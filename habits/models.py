@@ -10,7 +10,7 @@ NULLABLE = {"blank": True, "null": True}
 class Habit(models.Model):
     """Модель привычки."""
 
-    habit = models.CharField(max_length=255, verbose_name="Привычка", **NULLABLE)
+    habit = models.CharField(max_length=255, verbose_name="Привычка", **NULLABLE)            # noqa
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,

@@ -7,7 +7,7 @@ from habits.services import send_telegram_message
 
 @shared_task
 def start_time_reminder():
-    """Отправляет напоминание пользователю о начале выполнения привычки на почту или в TG."""
+    """Отправляет напоминание пользователю о начале выполнения привычки на почту или в TG."""     # noqa
     today = timezone.now().today()
     message = "Пришло время начать выполнять привычку!"
     habits = Habit.objects.filter(owner__isnull=False, start_time=today)
