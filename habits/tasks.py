@@ -14,4 +14,4 @@ def start_time_reminder():
 
     for habit in habits:
         if habit.owner.tg_chat_id:
-            send_telegram_message(message)
+            send_telegram_message(message, habit.owner.tg_chat_id)

@@ -1,9 +1,13 @@
+from config import settings
 import requests
 
 
-def send_telegram_message(chat_id, message):
+def send_telegram_message(message, tg_chat_id):
     """Функция отправки уведомлений в TG"""
-    params = {"text": message, "chat_id": chat_id}
+    params = {
+        "text": message,
+        "tg_chat_id": tg_chat_id,
+    }
     requests.get(
-        "{settings.TELEGRAM_URL}{settings.TELEGRAM_TOKEN}/sendMessage", params=params           # noqa
+        f"{settings.TELEGRAM_URL}{settings.TELEGRAM_TOKEN}/sendMessage", params=params,           # noqa
     )
