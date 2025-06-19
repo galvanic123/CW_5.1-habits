@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -19,7 +21,7 @@ class HabitTestCase(APITestCase):
             action="To go out",
             is_pleasant=True,
             periodicity=1,
-            execution_time="00:00:60",
+            execution_time=timedelta(seconds=60),
             is_published=True,
             owner=self.user,
         )
@@ -44,7 +46,7 @@ class HabitTestCase(APITestCase):
             "action": "test",
             "is_pleasant": False,
             "periodicity": 1,
-            "execution_time": "00:00:10",
+            "execution_time": "00:01:00",
             "is_published": True,
             "owner": self.user.pk,
         }
@@ -78,27 +80,27 @@ class HabitTestCase(APITestCase):
         url = reverse("habits:habit-list")
         response = self.client.get(url)
         print(response.json())
-        data = response.json()
-        result = {
-            "count": 1,
-            "next": None,
-            "previous": None,
-            "results": [
-                {
-                    "id": 1,
-                    "habit": "Go out",
-                    "place": "Restaurant",
-                    "start_time": "2024-12-18T10:54:49Z",
-                    "action": "To go out",
-                    "is_pleasant": True,
-                    "periodicity": 1,
-                    "remuneration": None,
-                    "execution_time": "00:01:00",
-                    "is_published": True,
-                    "owner": 1,
-                    "related_habit": None,
-                }
-            ],
-        }
+        # data = response.json()
+        # result = {
+        #     "count": 1,
+        #     "next": None,
+        #     "previous": None,
+        #     "results": [
+        #         {
+        #             "id": 1,
+        #             "habit": "Go out",
+        #             "place": "Restaurant",
+        #             "start_time": "2024-12-18T10:54:49Z",
+        #             "action": "To go out",
+        #             "is_pleasant": True,
+        #             "periodicity": 1,
+        #             "remuneration": None,
+        #             "execution_time": "00:01:00",
+        #             "is_published": True,
+        #             "owner": 1,
+        #             "related_habit": None,
+        #         }
+        #     ],
+        # }
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # self.assertEqual(data, result)
